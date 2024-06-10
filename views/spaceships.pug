@@ -1,0 +1,28 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body    
+        h1 Spaceships 
+        .cards 
+            each spaceship in data
+                .card 
+                    h2.card__name #{spaceship.properties.name}  
+                    div.row
+                        div.l Width:
+                        div.r  #{spaceship.properties.width}
+                    div.row
+                        div.l Length:
+                        div.r  #{spaceship.properties.length}
+                    div.row
+                        div.l  Has Hyperdrive:
+                        div.r
+                            if spaceship.properties.has_light_speed_drive
+                                div  Yes
+                            else
+                                div  No
+                    
