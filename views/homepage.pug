@@ -7,8 +7,9 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         link(rel="stylesheet", href="/css/style.css")
     body    
-        h1 Spaceships 
-        .cards 
+        h1 #{title}
+            a(href="http://localhost:3000/add-cobj") Add a Spaceship
+        .cards
             each spaceship in data
                 .card 
                     h2.card__name #{spaceship.properties.name}  
@@ -22,7 +23,10 @@ html
                         div.l  Has Hyperdrive:
                         div.r
                             if spaceship.properties.has_light_speed_drive
-                                div  Yes
+                                div.r  Yes
                             else
-                                div  No
+                                div.r  No
+                    div 
+                        a(href=`http://localhost:3000/update-cobj/${spaceship.properties.name}`) Update
+                        a(href=`http://localhost:3000/delete-cobj/${spaceship.properties.hs_object_id}`) Delete
                     

@@ -1,0 +1,23 @@
+//- ** This is a sample of a pug template and how it uses the data passed to it from index.js.
+
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        a(href="http://localhost:3000/") home
+        h1 Edit Spaceship 
+        div#form-wrapper
+            h2=data.name
+            form(method="POST" action=`/update-cobj/${data.name}`)
+                label(for="width") Width
+                input(type="number" name="width" value=`${data.width}`)
+                label(for="length") Length
+                input(type="number" name="length"  value=`${data.length}`)
+                input(type="checkbox" name="has_light_speed_drive" checked=`${data.has_light_speed_drive}`)
+                label(for="has_light_speed_drive") Has Hyperdrive
+                button(type="submit") save 
+
+                    
